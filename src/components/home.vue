@@ -7,14 +7,7 @@
 </template>
 
 <script>
-import { login } from '../service/users'
-export default {
-  mounted() {
-    login({ userId: '18401050101', password: 'admin' }).then((res) => {
-      console.log(res)
-    })
-  },
-}
+export default {}
 </script>
 
 <style lang="scss" scoped></style>

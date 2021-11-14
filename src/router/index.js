@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import store from '../store'
+
 Vue.use(VueRouter)
 
 const Login = () =>
@@ -25,6 +27,17 @@ const routes = [
         component: Welcome,
       },
     ],
+    beforeEnter: (to, from, next) => {
+      const token = store.state.token
+      if (!token) {
+        next({
+          path: '/login',
+          replace: true,
+        })
+      } else {
+        next()
+      }
+    },
   },
   {
     path: '/login',
