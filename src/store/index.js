@@ -32,6 +32,12 @@ export default new Vuex.Store({
 
       return true
     },
+    logout({ commit }) {
+      commit('setToken', '')
+      commit('setUser', null)
+
+      storage.clearAll()
+    },
   },
   modules: {},
 })

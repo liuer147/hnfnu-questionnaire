@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import store from '../store'
-
+import loadRoutes from '../utils/load-routes'
 Vue.use(VueRouter)
 
 const Login = () =>
@@ -19,10 +19,10 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: 'welcome',
+    redirect: '/welcome',
     children: [
       {
-        path: 'welcome',
+        path: '/welcome',
         name: 'Welcome',
         component: Welcome,
       },
@@ -54,5 +54,13 @@ const routes = [
 const router = new VueRouter({
   routes,
 })
+
+if (
+  store.state.token &&
+  router.history &&
+  router.history.current.fullPath !== '/login'
+) {
+  loadRoutes(router)
+}
 
 export default router
