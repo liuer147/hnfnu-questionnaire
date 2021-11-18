@@ -64,7 +64,7 @@ export default {
       const loginSucc = await this.loginAcc(this.account)
       if (loginSucc) {
         Message.success('登录成功')
-        loadRoutes(this.$router)
+        loadRoutes(this.$router, this.$store.state.user.roleId)
         this.$router.replace('/welcome')
       }
       this.loading = false

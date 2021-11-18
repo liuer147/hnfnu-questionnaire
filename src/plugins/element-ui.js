@@ -19,6 +19,8 @@ import {
   MenuItem,
   Row,
   Submenu,
+  Table,
+  TableColumn,
 } from 'element-ui'
 
 const elems = [
@@ -42,6 +44,8 @@ const elems = [
   Dropdown,
   DropdownItem,
   DropdownMenu,
+  Table,
+  TableColumn,
 ]
 export default function registerElement(Vue) {
   elems.forEach((elem) => {

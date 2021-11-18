@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import 'reset-css'
 
-import registerElement from './global/element-ui'
+import registerElement from './plugins/element-ui'
 
 Vue.config.productionTip = false
 

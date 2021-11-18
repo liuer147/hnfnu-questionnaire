@@ -13,7 +13,7 @@
         </el-breadcrumb-item>
       </el-breadcrumb>
       <div class="userInfo">
-        <div class="role">{{ myRole }}</div>
+        <div class="role">{{ roleObj[user.roleId] }}</div>
         <el-dropdown>
           <span class="el-dropdown-link">
             <span>{{ user.username }}</span>
@@ -34,14 +34,14 @@
 
 <script>
 import menus from '../config/menu.config'
-import role from '../config/role.config'
+import roleObj from '../config/role.config'
 export default {
   name: 'nav-header',
   data() {
     return {
       breadList: [],
       isCollapse: false,
-      myRole: role,
+      roleObj,
     }
   },
   computed: {

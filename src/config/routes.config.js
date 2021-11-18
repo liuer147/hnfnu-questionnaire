@@ -1,5 +1,3 @@
-import store from '../store'
-
 const SelfQuestionBank = () =>
   import(
     /* webpackChunkName: 'selfQuestionBank' */ '@/views/self-question-bank/self-question-bank.vue'
@@ -16,18 +14,37 @@ const adminRoutes = [
   {
     path: '/question/self',
     name: 'self-question-bank',
+    meta: { title: '个人题库' },
     component: SelfQuestionBank,
     type: 2,
   },
   {
     path: '/question/public',
     name: 'public-question-bank',
+    meta: { title: '公共题库' },
     component: PublicQuestionBank,
     type: 2,
   },
   {
     path: '/questionnaire',
     name: 'questionnaire',
+    meta: { title: '问卷' },
+    component: Questionnaire,
+    type: 1,
+  },
+]
+const teacherRoutes = [
+  {
+    path: '/question/self',
+    name: 'self-question-bank',
+    meta: { title: '个人题库' },
+    component: SelfQuestionBank,
+    type: 2,
+  },
+  {
+    path: '/questionnaire',
+    name: 'questionnaire',
+    meta: { title: '问卷' },
     component: Questionnaire,
     type: 1,
   },
@@ -35,10 +52,10 @@ const adminRoutes = [
 
 const roleRoutesObj = {
   0: adminRoutes,
-  1: adminRoutes,
+  1: teacherRoutes,
   2: adminRoutes,
 }
 
-const roleId = store.state.user?.roleId || 0 // $此时必须是0, 理由同menu.config.js
+// const roleId = store.state.user?.roleId || 0 // $此时必须是0, 理由同menu.config.js
 
-export default roleRoutesObj[roleId] || []
+export default roleRoutesObj

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import store from '../store'
+import usePermission from './permission'
 import loadRoutes from '../utils/load-routes'
 Vue.use(VueRouter)
 
@@ -14,7 +15,7 @@ const Welcome = () =>
 const NotFound = () =>
   import(/* webpackChunkName: "not-found" */ '../views/not-found.vue')
 
-const routes = [
+const constantRoutes = [
   {
     path: '/',
     name: 'Home',
@@ -24,43 +25,47 @@ const routes = [
       {
         path: '/welcome',
         name: 'Welcome',
+        meta: { title: '欢迎使用' },
         component: Welcome,
       },
     ],
-    beforeEnter: (to, from, next) => {
-      const token = store.state.token
-      if (!token) {
-        next({
-          path: '/login',
-          replace: true,
-        })
-      } else {
-        next()
-      }
-    },
   },
   {
     path: '/login',
     name: 'Login',
+    meta: { title: '登录' },
     component: Login,
   },
   {
     path: '*',
     name: 'NotFound',
+    meta: { title: '404' },
     component: NotFound,
   },
 ]
 
-const router = new VueRouter({
-  routes,
-})
+const createRouter = () => {
+  return new VueRouter({
+    routes: constantRoutes,
+  })
+}
+
+const router = createRouter()
+
+usePermission(router, store) // 权限控制
+
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher
+  console.log(router.matcher)
+}
 
 if (
   store.state.token &&
   router.history &&
   router.history.current.fullPath !== '/login'
 ) {
-  loadRoutes(router)
+  loadRoutes(router, store.state.user.roleId) // 加载路由
 }
 
 export default router

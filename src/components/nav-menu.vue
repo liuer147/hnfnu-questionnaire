@@ -41,12 +41,10 @@
 </template>
 
 <script>
-import menus from '../config/menu.config'
 export default {
   name: 'nav-menu',
   data() {
     return {
-      menus: menus,
       isCollapse: false,
       // activeMenu: this.$route.fullPath  $直接设置属性不能对fullPath进行响应式的侦听,计算属性可以
     }
@@ -54,8 +52,11 @@ export default {
   computed: {
     activeMenu() {
       return this.$route.fullPath
-    }
-  }
+    },
+    menus() {
+      return this.$store.state.menus
+    },
+  },
 }
 </script>
 
