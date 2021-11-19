@@ -54,18 +54,18 @@ const router = createRouter()
 
 usePermission(router, store) // 权限控制
 
-export function resetRouter() {
-  const newRouter = createRouter()
-  router.matcher = newRouter.matcher
-  console.log(router.matcher)
-}
 
 if (
-  store.state.token &&
+  store.getters['users/token'] &&
   router.history &&
   router.history.current.fullPath !== '/login'
 ) {
-  loadRoutes(router, store.state.user.roleId) // 加载路由
+  loadRoutes(router, store.getters['users/roleId']) // 加载路由
+}
+
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher
 }
 
 export default router

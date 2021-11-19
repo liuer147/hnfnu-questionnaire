@@ -10,4 +10,8 @@ export const tableColumns = [
     prop: 'typeId',
     map: (v) => questionType[v],
   },
+  {
+    label: '发布者',
+    prop: 'username'
+  }
 ]

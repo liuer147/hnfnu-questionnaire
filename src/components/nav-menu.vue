@@ -54,7 +54,7 @@ export default {
       return this.$route.fullPath
     },
     menus() {
-      return this.$store.state.menus
+      return this.$store.getters['users/menus']
     },
   },
 }

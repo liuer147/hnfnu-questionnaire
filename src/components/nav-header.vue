@@ -13,10 +13,12 @@
         </el-breadcrumb-item>
       </el-breadcrumb>
       <div class="userInfo">
-        <div class="role">{{ roleObj[user.roleId] }}</div>
+        <div class="role" v-if="user.roleId != null">
+          {{ roleObj[user.roleId] }}
+        </div>
         <el-dropdown>
           <span class="el-dropdown-link">
-            <span>{{ user.username }}</span>
+            <span>{{ user.username || '匿名用户' }}</span>
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
@@ -33,7 +35,7 @@
 </template>
 
 <script>
-import menus from '../config/menu.config'
+// import menusObj from '../config/menu.config'
 import roleObj from '../config/role.config'
 export default {
   name: 'nav-header',
@@ -46,7 +48,10 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.state.user || {}
+      return this.$store.getters['users/user']
+    },
+    menus() {
+      return this.$store.getters['users/menus']
     },
   },
   watch: {
@@ -66,12 +71,12 @@ export default {
     },
     getBreadList(currPath) {
       const list = []
-      for (let i = 0; i < menus.length; i++) {
-        if (menus[i].type === 1) {
-          const children = menus[i].children
+      for (let i = 0; i < this.menus.length; i++) {
+        if (this.menus[i].type === 1) {
+          const children = this.menus[i].children
           for (let j = 0; j < children.length; j++) {
             if (children[j].path === currPath) {
-              list.push({ name: menus[i].name })
+              list.push({ name: this.menus[i].name })
               list.push({ name: children[j].name })
             }
           }
@@ -80,7 +85,7 @@ export default {
       return list
     },
     handleLogout() {
-      this.$store.dispatch('logout')
+      this.$store.dispatch('users/logout')
       this.$router.replace('/login')
     },
   },

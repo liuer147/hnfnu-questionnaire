@@ -14,7 +14,7 @@ function usePermission(router, store) {
   router.beforeEach((to, from, next) => {
     document.title = getTitle(to) // 修改网页title
 
-    const token = store.getters.token // 获取token
+    const token = store.getters['users/token'] // 获取token
 
     if (token) {
       // 有token

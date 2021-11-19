@@ -64,12 +64,12 @@ export default {
       const loginSucc = await this.loginAcc(this.account)
       if (loginSucc) {
         Message.success('登录成功')
-        loadRoutes(this.$router, this.$store.state.user.roleId)
+        loadRoutes(this.$router, this.$store.getters['users/roleId'])
         this.$router.replace('/welcome')
       }
       this.loading = false
     },
-    ...mapActions(['loginAcc']),
+    ...mapActions('users', ['loginAcc']),
   },
 }
 </script>

@@ -3,7 +3,7 @@ import roleRoutesObj from '../config/routes.config'
 
 export default function loadRoutes(router, roleId) {
   const routes = roleRoutesObj[roleId]
-
+  
   if (!routes || routes.length === 0) {
     Message.warning('路由为空~')
     return

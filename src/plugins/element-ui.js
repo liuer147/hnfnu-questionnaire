@@ -17,6 +17,9 @@ import {
   Main,
   Menu,
   MenuItem,
+  Pagination,
+  Radio,
+  RadioGroup,
   Row,
   Submenu,
   Table,
@@ -46,6 +49,9 @@ const elems = [
   DropdownMenu,
   Table,
   TableColumn,
+  Radio,
+  RadioGroup,
+  Pagination
 ]
 export default function registerElement(Vue) {
   elems.forEach((elem) => {
