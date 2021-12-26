@@ -1,6 +1,7 @@
 import {
   getPublicQuestionsList,
   getSelfQuestionsByUserId,
+  createNewQuestion,
 } from '../../api/questions'
 
 export default {
@@ -61,5 +62,10 @@ export default {
       commit('setPublicTotal', total)
       return true
     },
+    async createQuestion(store, data) {
+      console.log('createSubmit')
+      const res = await createNewQuestion(data)
+      console.log(res)
+    }
   },
 }

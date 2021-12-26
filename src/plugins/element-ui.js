@@ -7,6 +7,7 @@ import {
   Card,
   Col,
   Container,
+  Dialog,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -17,11 +18,14 @@ import {
   Main,
   Menu,
   MenuItem,
+  Option,
   Pagination,
   Radio,
   RadioGroup,
   Row,
+  Select,
   Submenu,
+  Switch,
   Table,
   TableColumn,
 } from 'element-ui'
@@ -51,7 +55,11 @@ const elems = [
   TableColumn,
   Radio,
   RadioGroup,
-  Pagination
+  Pagination,
+  Dialog,
+  Switch,
+  Select,
+  Option
 ]
 export default function registerElement(Vue) {
   elems.forEach((elem) => {

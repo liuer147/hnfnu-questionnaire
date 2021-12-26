@@ -1,12 +1,16 @@
 <template>
   <div class="page-content" :key="page">
     <div class="table">
-      <div class="header" >
-        <el-button v-if="hasCreatePermission" size="medium" type="primary">新增题目</el-button>
+      <div class="header">
+        <div v-if="hasCreatePermission">
+          <el-button size="medium" type="primary" plain @click="create(0)">新增单选</el-button>
+          <el-button size="medium" type="primary" plain @click="create(1)">新增多选</el-button>
+          <el-button size="medium" type="primary" plain @click="create(2)">新增判断</el-button>
+        </div>
       </div>
       <MyTable :key="page" :table-columns="tableColumns" :table-data="tableData" :has-operator-permission="hasOperatorPermission">
         <template #expand="{ row }">
-          <RadioQuestion :title="row.text" :options="row.option" :answer="row.answer" />
+          <ContentQuestion class="question" :type-id="row.typeId" :title="row.text" :options="row.option" :answer="row.answer" />
         </template>
         <template v-for="item of mapColumns" #[item.prop]="{ row }">
           {{ item.map(row[item.prop]) }}
@@ -38,12 +42,12 @@
 
 <script>
 import MyTable from '@/base-comp/my-table.vue'
-import RadioQuestion from '../content-question.vue'
+import ContentQuestion from '../content-question.vue'
 export default {
   name: 'page-content',
   components: {
     MyTable,
-    RadioQuestion,
+    ContentQuestion,
   },
   props: {
     tableColumns: {
@@ -102,6 +106,9 @@ export default {
         this.$store.dispatch(`questions/get${Page}Questions`, this.pagingData)
       }
     },
+    create(type) {
+      this.$emit('create', type)
+    }
   },
 }
 </script>
@@ -129,6 +136,9 @@ export default {
     right: 0;
     top: 0px;
     overflow-y: scroll;
+    .question {
+      margin-left: 50px;
+    }
     .operator {
       display: flex;
       align-items: center;

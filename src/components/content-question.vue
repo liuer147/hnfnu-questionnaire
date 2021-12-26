@@ -7,8 +7,10 @@
         v-for="(item, index) of options"
         :key="item.text"
       >
-        <i class="item-icon" :class="{'is-true': isTrue(index)}" />
-        <label class="item-title" :class="{ 'is-true': isTrue(index) }">{{ item.text }}</label>
+        <i :class="{ 'is-true': isTrue(index), 'item-icon': !isMultiple, 'multiple-icon': isMultiple }" />
+        <label class="item-title" :class="{ 'is-true': isTrue(index) }">{{
+          item.text
+        }}</label>
       </span>
     </div>
   </div>
@@ -29,6 +31,15 @@ export default {
     answer: {
       type: Array,
       required: true,
+    },
+    typeId: {
+      type: Number,
+      required: true,
+    },
+  },
+  computed: {
+    isMultiple() {
+      return this.typeId === 1
     },
   },
   methods: {
@@ -58,6 +69,18 @@ export default {
         width: 12px;
         height: 12px;
         border-radius: 50%;
+        margin-right: 8px;
+        border: 1px solid #666;
+        &.is-true {
+          background-color: #1296db;
+          border: 1px solid #1296db;
+        }
+      }
+      .multiple-icon {
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
         margin-right: 8px;
         border: 1px solid #666;
         &.is-true {

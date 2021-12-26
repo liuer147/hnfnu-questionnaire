@@ -1,4 +1,4 @@
-import { get } from './base'
+import { get, post } from './base'
 
 const prefix = 'question'
 
@@ -12,4 +12,8 @@ export function getPublicQuestionsList(params) {
   return get(`${prefix}/questions`, params).then((res) => {
     return res.data
   })
+}
+
+export function createNewQuestion(data) {
+  return post(prefix, data)
 }
