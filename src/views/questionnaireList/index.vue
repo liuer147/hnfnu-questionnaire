@@ -33,9 +33,21 @@ export default {
       setTimeout(() => {
         if (this.pageData.pageNum === 1) {
           this.tableData = [
-            { id: '10010', name: '问君能有几多愁卷', createTime: '2021-12-28 14:00:00' },
-            { id: '10011', name: '静夜诗卷', createTime: '2021-12-28 14:00:00' },
-            { id: '10086', name: '这不是试卷', createTime: '2021-12-28 14:00:00' }
+            {
+              id: '10010',
+              name: '问君能有几多愁卷',
+              createTime: '2021-12-28 14:00:00',
+            },
+            {
+              id: '10011',
+              name: '静夜诗卷',
+              createTime: '2021-12-28 14:00:00',
+            },
+            {
+              id: '10086',
+              name: '这不是试卷',
+              createTime: '2021-12-28 14:00:00',
+            },
           ]
         }
         this.pageData.total = 3

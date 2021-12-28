@@ -162,7 +162,8 @@ export default {
         case 'edit':
           console.log('edit')
           break
-        default: console.warn(eventName, prop, scope)
+        default:
+          console.warn(eventName, prop, scope)
       }
     },
     async handleDelete() {
@@ -170,7 +171,7 @@ export default {
       if (!isConfirm) return
       console.log('delete')
       this.getPageTableList()
-    }
+    },
   },
 }
 </script>

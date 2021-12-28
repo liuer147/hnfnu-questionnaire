@@ -112,8 +112,7 @@ export default {
         this.curTime = now
         this.getTime(time - step)
       }, 1000)
-    }
-    ,
+    },
   },
 }
 </script>

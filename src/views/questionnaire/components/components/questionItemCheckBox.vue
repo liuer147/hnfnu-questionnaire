@@ -1,8 +1,12 @@
 <template>
-  <el-checkbox-group v-model="value" @change="handleChange">
-    <el-checkbox class="check-item" v-for="item of options" :key="item.mark" :label="item.mark">{{
-      item.text
-    }}</el-checkbox>
+  <el-checkbox-group class="options" v-bind="$attrs" v-model="value" @change="handleChange">
+    <el-checkbox
+      class="option-value"
+      v-for="item of options"
+      :key="item.mark"
+      :label="item.mark"
+      >{{ item.text }}</el-checkbox
+    >
   </el-checkbox-group>
 </template>
 
@@ -14,12 +18,12 @@ export default {
   props: {
     options: {
       type: Array,
-      default: () => ([
+      default: () => [
         { text: '选项一', mark: 'A' },
         { text: '选项二', mark: 'B' },
         { text: '选项三', mark: 'C' },
         { text: '选项四', mark: 'D' },
-      ]),
+      ],
     },
   },
   data() {
@@ -36,9 +40,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .check-item {
+.options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .option-value {
+    margin-right: 0;
+    line-height: 30px;
+    flex: 1;
     &:hover {
-      background: rgba(150, 150, 150, 0.5);
+      background: rgba(150, 150, 150, 0.2);
     }
   }
+}
 </style>
