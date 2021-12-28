@@ -13,6 +13,7 @@
 import TablePage from '@/components/Page/TablePage'
 import { tablePageMixin, confirmMixin } from '@/mixins'
 import { questionListTablePageConfig } from './config'
+import { getSelfQuestionsByUserId, deleteQuestionByid } from '@/api/questions'
 export default {
   name: 'QuestionList',
   mixins: [tablePageMixin, confirmMixin],
@@ -29,127 +30,24 @@ export default {
     this.getPageTableList()
   },
   methods: {
-    getPageTableList() {
-      setTimeout(() => {
-        if (this.pageData.pageNum === 1) {
-          this.tableData = [
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '0',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '2',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '0',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-          ]
-        } else {
-          this.tableData = [
-            {
-              type: '0',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-            {
-              type: '1',
-              text: '我是这个题目的题干',
-              createTime: '2021-12-28 10:11:35',
-            },
-          ]
-        }
-        this.pageData.total = 22
-      }, 0)
+    async getPageTableList() {
+      const params = {
+        currentPage: this.pageData.pageNum,
+        pageSize: this.pageData.pageSize,
+      }
+      const { total, records } = await getSelfQuestionsByUserId(
+        this.$store.getters['users/userId'],
+        params
+      )
+      this.tableData =
+        records &&
+        records.map((item) => ({
+          type: item.typeId,
+          userName: item.userName,
+          text: item.content.text,
+          questionId: item.questionId,
+        }))
+      this.pageData.total = total
     },
     tableEvent(eventName, prop, scope) {
       switch (prop) {
@@ -166,10 +64,11 @@ export default {
           console.warn(eventName, prop, scope)
       }
     },
-    async handleDelete() {
+    async handleDelete(row) {
       const isConfirm = await this.confirmOperate('是否确认和删除？')
       if (!isConfirm) return
-      console.log('delete')
+      const res = await deleteQuestionByid(row.questionId)
+      console.log(res)
       this.getPageTableList()
     },
   },

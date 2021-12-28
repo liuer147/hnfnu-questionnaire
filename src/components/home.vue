@@ -56,6 +56,7 @@ export default {
     background-color: #eee;
     min-width: 400px;
     position: relative;
+    background-color: white;
   }
 }
 </style>

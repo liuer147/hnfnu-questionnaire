@@ -2,7 +2,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://192.168.137.1:8080/questionnaires',
+        target: 'http://192.168.0.100:8088/questionnaires',
         changeOrigin: true,
         pathRewrite: { '^/api': '' }
       }
@@ -22,5 +22,6 @@ module.exports = {
   },*/
 }
 
+// http://192.168.0.100:8088 超儿
 // http://192.168.0.106:8080 超儿
 // http://192.168.137.1:8080 华儿

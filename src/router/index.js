@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import store from '../store'
-// import usePermission from './permission'
+import usePermission from './permission'
 import loadRoutes from '../utils/load-routes'
 Vue.use(VueRouter)
 
@@ -10,8 +10,8 @@ const Login = () =>
   import(/* webpackChunkName: "login" */ '../views/login/login.vue')
 const Home = () =>
   import(/* webpackChunkName: "home" */ '../components/home.vue')
-// const Welcome = () =>
-//   import(/* webpackChunkName: "welcome" */ '../views/welcome/welcome.vue')
+const Welcome = () =>
+  import(/* webpackChunkName: "welcome" */ '../views/welcome/welcome.vue')
 const NotFound = () =>
   import(/* webpackChunkName: "not-found" */ '../views/not-found.vue')
 // const QuestionList = () =>
@@ -33,7 +33,7 @@ const constantRoutes = [
         path: '/welcome',
         name: 'Welcome',
         meta: { title: '欢迎使用' },
-        component: QuestionnaireList,
+        component: Welcome,
       },
     ],
   },
@@ -64,7 +64,7 @@ const createRouter = () => {
 
 const router = createRouter()
 
-// usePermission(router, store) // 权限控制
+usePermission(router, store) // 权限控制
 
 if (
   store.getters['users/token'] &&

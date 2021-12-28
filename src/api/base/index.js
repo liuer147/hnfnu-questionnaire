@@ -8,7 +8,7 @@ export function post(url, data) {
   return axios.post(url, data)
 }
 
-export function dele(url) {
+export function deletes(url) {
   return axios.delete(url)
 }
 

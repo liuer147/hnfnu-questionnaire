@@ -1,23 +1,23 @@
 const adminMenu = [
   {
     _id: 1,
-    name: '题库管理',
+    name: '卷库管理',
     icon: 'el-icon-s-order',
-    path: '/question',
+    path: '/',
     type: 1,
     children: [
       {
         _id: 101,
-        name: '个人题库',
+        name: '试卷管理',
         icon: '',
-        path: '/question/self',
+        path: '/questionnaireList',
         type: 2,
       },
       {
         _id: 102,
-        name: '公共题库',
+        name: '题库管理',
         icon: '',
-        path: '/question/public',
+        path: '/questionList',
         type: 2,
       },
     ],
@@ -33,16 +33,23 @@ const adminMenu = [
 const teacherMenu = [
   {
     _id: 1,
-    name: '题库管理',
+    name: '卷库管理',
     icon: 'el-icon-s-order',
-    path: '/question',
+    path: '/',
     type: 1,
     children: [
       {
         _id: 101,
-        name: '个人题库',
+        name: '试卷管理',
         icon: '',
-        path: '/question/self',
+        path: '/questionnaireList',
+        type: 2,
+      },
+      {
+        _id: 102,
+        name: '题库管理',
+        icon: '',
+        path: '/questionList',
         type: 2,
       },
     ],

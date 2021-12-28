@@ -10,7 +10,6 @@ import './styles/index.scss'
 import _ from 'lodash'
 
 Vue.prototype.$_ = _
-Vue.prototype.$message = _
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
