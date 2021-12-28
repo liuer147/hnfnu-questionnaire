@@ -4,11 +4,16 @@ import router from './router'
 import store from './store'
 import 'reset-css'
 
-import registerElement from './plugins/element-ui'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import './styles/index.scss'
+import _ from 'lodash'
 
+Vue.prototype.$_ = _
+Vue.prototype.$message = _
 Vue.config.productionTip = false
 
-Vue.use(registerElement)
+Vue.use(ElementUI)
 
 new Vue({
   router,

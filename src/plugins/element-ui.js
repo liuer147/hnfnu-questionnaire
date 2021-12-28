@@ -59,7 +59,7 @@ const elems = [
   Dialog,
   Switch,
   Select,
-  Option
+  Option,
 ]
 export default function registerElement(Vue) {
   elems.forEach((elem) => {

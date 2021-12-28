@@ -3,14 +3,31 @@
     <div class="table">
       <div class="header">
         <div v-if="hasCreatePermission">
-          <el-button size="medium" type="primary" plain @click="create(0)">新增单选</el-button>
-          <el-button size="medium" type="primary" plain @click="create(1)">新增多选</el-button>
-          <el-button size="medium" type="primary" plain @click="create(2)">新增判断</el-button>
+          <el-button size="medium" type="primary" plain @click="create(0)"
+            >新增单选</el-button
+          >
+          <el-button size="medium" type="primary" plain @click="create(1)"
+            >新增多选</el-button
+          >
+          <el-button size="medium" type="primary" plain @click="create(2)"
+            >新增判断</el-button
+          >
         </div>
       </div>
-      <MyTable :key="page" :table-columns="tableColumns" :table-data="tableData" :has-operator-permission="hasOperatorPermission">
+      <MyTable
+        :key="page"
+        :table-columns="tableColumns"
+        :table-data="tableData"
+        :has-operator-permission="hasOperatorPermission"
+      >
         <template #expand="{ row }">
-          <ContentQuestion class="question" :type-id="row.typeId" :title="row.text" :options="row.option" :answer="row.answer" />
+          <ContentQuestion
+            class="question"
+            :type-id="row.typeId"
+            :title="row.text"
+            :options="row.option"
+            :answer="row.answer"
+          />
         </template>
         <template v-for="item of mapColumns" #[item.prop]="{ row }">
           {{ item.map(row[item.prop]) }}
@@ -92,12 +109,12 @@ export default {
     },
     hasCreatePermission() {
       const permissionPages = ['self']
-      return permissionPages.some(item => item === this.page)
+      return permissionPages.some((item) => item === this.page)
     },
     hasOperatorPermission() {
       const permissionPages = ['self']
-      return permissionPages.some(item => item === this.page)
-    }
+      return permissionPages.some((item) => item === this.page)
+    },
   },
   methods: {
     fetchData() {
@@ -108,7 +125,7 @@ export default {
     },
     create(type) {
       this.$emit('create', type)
-    }
+    },
   },
 }
 </script>

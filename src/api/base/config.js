@@ -17,7 +17,7 @@ axios.interceptors.request.use((req) => {
 axios.interceptors.response.use(
   (res) => {
     const data = res.data
-    if(data && data.code !== 200) {
+    if (data && data.code !== 200) {
       Message.error(data.msg)
     }
     return data

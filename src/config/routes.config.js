@@ -8,7 +8,7 @@ const PublicQuestionBank = () =>
   )
 const Questionnaire = () =>
   import(
-    /* webpackChunkName: 'questionnaire' */ '@/views/questionnaire/questionnaire.vue'
+    /* webpackChunkName: 'questionnaire' */ '@/views/questionnaire/index.vue'
   )
 const adminRoutes = [
   {

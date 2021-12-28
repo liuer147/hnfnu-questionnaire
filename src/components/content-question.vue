@@ -7,7 +7,13 @@
         v-for="(item, index) of options"
         :key="item.text"
       >
-        <i :class="{ 'is-true': isTrue(index), 'item-icon': !isMultiple, 'multiple-icon': isMultiple }" />
+        <i
+          :class="{
+            'is-true': isTrue(index),
+            'item-icon': !isMultiple,
+            'multiple-icon': isMultiple,
+          }"
+        />
         <label class="item-title" :class="{ 'is-true': isTrue(index) }">{{
           item.text
         }}</label>

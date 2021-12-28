@@ -19,7 +19,12 @@
         </slot>
       </template>
     </el-table-column>
-    <el-table-column label="操作" align="center" width="130" v-if="hasOperatorPermission">
+    <el-table-column
+      label="操作"
+      align="center"
+      width="130"
+      v-if="hasOperatorPermission"
+    >
       <template v-slot="scope">
         <slot name="operator" :row="scope.row"></slot>
       </template>
@@ -42,8 +47,8 @@ export default {
     },
     hasOperatorPermission: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 }
 </script>

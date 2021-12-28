@@ -37,7 +37,6 @@ export default {
   },
   actions: {
     async getSelfQuestions({ commit, rootGetters }, payload) {
-
       const userId = rootGetters['users/userId']
       const resData = await getSelfQuestionsByUserId(userId, payload)
       // const resData = await axios
@@ -66,6 +65,6 @@ export default {
       console.log('createSubmit')
       const res = await createNewQuestion(data)
       console.log(res)
-    }
+    },
   },
 }

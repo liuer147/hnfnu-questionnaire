@@ -12,6 +12,6 @@ export const tableColumns = [
   },
   {
     label: '发布者',
-    prop: 'username'
-  }
+    prop: 'username',
+  },
 ]

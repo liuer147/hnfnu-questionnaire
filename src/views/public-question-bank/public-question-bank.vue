@@ -20,7 +20,7 @@ export default {
     return {
       rules,
       formItems,
-      tableColumns
+      tableColumns,
     }
   },
 }

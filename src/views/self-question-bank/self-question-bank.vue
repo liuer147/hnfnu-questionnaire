@@ -7,31 +7,31 @@
       @create="handleCreate"
       @edit="handleEdit"
     />
-    <QuestionDialog
-      ref="dialog"
-      :type="QuestionType"
-      :question.sync="question"
-      :dialog-items="dialogItems"
-      :rules="dialogRules"
-      @close="handleClose"
-      @submit="handleCreateSubmit"
-    />
+    <!--    <QuestionDialog-->
+    <!--      ref="dialog"-->
+    <!--      :type="QuestionType"-->
+    <!--      :question.sync="question"-->
+    <!--      :dialog-items="dialogItems"-->
+    <!--      :rules="dialogRules"-->
+    <!--      @close="handleClose"-->
+    <!--      @submit="handleCreateSubmit"-->
+    <!--    />-->
   </div>
 </template>
 
 <script>
 import PageSearch from '@/components/page-search/page-search.vue'
 import PageContent from '@/components/page-content/page-content.vue'
-import QuestionDialog from '@/components/question-dialog/question-dialog.vue'
+// import QuestionDialog from '@/components/question-dialog/question-dialog.vue'
 import { formItems, rules } from './search.config'
 import { tableColumns } from './content.config'
-import { createQuestion, createDialogItems, dialogRules } from './dialog.config'
+// import { createQuestion, createDialogItems, dialogRules } from './dialog.config'
 export default {
   name: 'self-question-bank',
   components: {
     PageSearch,
     PageContent,
-    QuestionDialog,
+    // QuestionDialog,
   },
   data() {
     return {
@@ -39,7 +39,7 @@ export default {
       rules,
       tableColumns,
       dialogItems: [],
-      dialogRules,
+      // dialogRules,
       question: {},
       QuestionType: 0,
     }
@@ -58,7 +58,7 @@ export default {
     },
     handleCreateSubmit() {
       this.$store.dispatch('questions/createQuestion', this.question)
-    }
+    },
   },
 }
 </script>

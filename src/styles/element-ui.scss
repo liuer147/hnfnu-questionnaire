@@ -1,0 +1,79 @@
+// cover some element-ui styles
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+.el-upload {
+  input[type='file'] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+  .el-dialog__header {
+    padding: 0 0 0 15px;
+    height: 33px;
+    line-height: 33px;
+    text-align: left;
+    color: #323232;
+    background: #f2f2f2;
+    border-bottom: 1px solid #e6e6e6;
+    .el-dialog__title {
+      line-height: 24px;
+      font-size: 13px;
+      color: #303133;
+    }
+    .el-dialog__headerbtn {
+      top: 0;
+      line-height: 33px;
+    }
+  }
+}
+
+// refine element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+// dropdown
+.el-dropdown-menu {
+  a {
+    display: block;
+  }
+}
+
+// to fix el-date-picker css style
+.el-range-separator {
+  box-sizing: content-box;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+  background-color: rgba(255, 255, 255, 0);
+  /*其他样式，比如圆角等*/
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(144, 147, 153, 0.5);
+}
