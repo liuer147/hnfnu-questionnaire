@@ -1,18 +1,12 @@
 <template>
   <div v-if="menuItem.type === 'link'" class="menu-item menu-item-link" />
-  <div
-    v-else
-    class="menu-item menu-has-icon"
-    :class="{ 'menu-item-disabled': menuItem.disabled }"
-  >
+  <div v-else class="menu-item menu-has-icon" :class="{ 'menu-item-disabled': menuItem.disabled }">
     <div class="menu-item-button" @click="buttonClick(menuItem)">
       <span v-if="menuItem.icon" class="menu-item-icon">
         <i :class="menuItem.icon" />
       </span>
       <span class="menu-item-text">{{ menuItem.text }}</span>
-      <span v-if="menuItem.hotkey" class="menu-item-hotkey">{{
-        menuItem.hotkey
-      }}</span>
+      <span v-if="menuItem.hotkey" class="menu-item-hotkey">{{ menuItem.hotkey }}</span>
       <span v-if="menuItem.children">
         <i class="el-icon-arrow-right" />
       </span>

@@ -60,11 +60,7 @@ export default {
   methods: {
     /** 转换部门数据结构 */
     normalizer(node) {
-      const {
-        id = 'id',
-        label = 'label',
-        children = 'children',
-      } = this.defaultProps
+      const { id = 'id', label = 'label', children = 'children' } = this.defaultProps
       if (node[children] && !node[children].length) {
         delete node[children]
       }

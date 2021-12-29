@@ -1,8 +1,6 @@
 <template>
   <div class="question-item">
-    <p class="question-text">
-      {{ index }}、{{ text }}
-    </p>
+    <p class="question-text">{{ index }}、{{ text }}</p>
     <div class="question-options">
       <componnet
         :is="questionItemComp"
@@ -54,7 +52,7 @@ export default {
       default: () => [],
     },
     index: {
-      type: Number
+      type: Number,
     },
     type: {
       type: Number,
@@ -62,12 +60,12 @@ export default {
     },
     analysis: {
       type: Object,
-      default: null
+      default: null,
     },
     compConfig: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   computed: {
     questionItemComp() {

@@ -5,18 +5,9 @@
     </div>
     <ElCard class="login card">
       <h2 class="title">一师问卷</h2>
-      <MyForm
-        ref="myForm"
-        :form-items="formItems"
-        :form-data.sync="account"
-        :rules="rules"
-      >
+      <MyForm ref="myForm" :form-items="formItems" :form-data.sync="account" :rules="rules">
         <template #footer>
-          <el-button
-            style="width: 100%; font-size: 18px"
-            type="primary"
-            @click="handleLogin"
-            :loading="loading"
+          <el-button style="width: 100%; font-size: 18px" type="primary" @click="handleLogin" :loading="loading"
             >登 录</el-button
           >
         </template>
@@ -25,10 +16,7 @@
     <div
       class="login-back"
       :style="{
-        background:
-          'url(' +
-          require('@/assets/images/login-back.jpg') +
-          ') no-repeat center/cover',
+        background: 'url(' + require('@/assets/images/login-back.jpg') + ') no-repeat center/cover',
       }"
     ></div>
   </div>

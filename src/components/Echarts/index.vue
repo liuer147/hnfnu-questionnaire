@@ -9,12 +9,7 @@ import { BarChart } from 'echarts/charts'
 import { LineChart } from 'echarts/charts'
 import { PieChart } from 'echarts/charts'
 import { CanvasRenderer } from 'echarts/renderers'
-import {
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  ToolboxComponent,
-} from 'echarts/components'
+import { TitleComponent, TooltipComponent, LegendComponent, ToolboxComponent } from 'echarts/components'
 
 echarts.use([
   GridComponent,

@@ -10,9 +10,7 @@
     />
     <a v-if="isClick" ref="itemClick" :style="itemStyle" @click="buttonClick">
       <span v-if="isHtml" v-html="tableColumnValue" />
-      <span v-else>{{
-        tableColumnValue | rowFilter(tableRow, bindConfig)
-      }}</span>
+      <span v-else>{{ tableColumnValue | rowFilter(tableRow, bindConfig) }}</span>
     </a>
     <span v-else>{{ tableColumnValue | rowFilter(tableRow, bindConfig) }}</span>
   </div>
@@ -89,11 +87,7 @@ export default {
     isClick() {
       const { formatter, isItem } = this.tableItemConfig
       if (_.isBoolean(formatter)) return formatter
-      else if (_.isFunction(formatter))
-        return formatter(
-          isItem ? this.tableColumnValue : this.tableRow,
-          'click'
-        )
+      else if (_.isFunction(formatter)) return formatter(isItem ? this.tableColumnValue : this.tableRow, 'click')
       else return true
     },
     isHtml() {

@@ -1,10 +1,5 @@
 <template>
-  <el-popover
-    v-model="popoverShow"
-    placement="bottom"
-    width="240"
-    trigger="click"
-  >
+  <el-popover v-model="popoverShow" placement="bottom" width="240" trigger="click">
     <new-tree
       ref="selectTree"
       is-select
@@ -18,10 +13,7 @@
     />
     <div slot="reference" class="popover-input">
       <el-input placeholder="请选择" :value="inputValue" size="mini" readonly />
-      <i
-        class="el-icon-arrow-down input-icon"
-        :class="{ 'input-focus': popoverShow }"
-      />
+      <i class="el-icon-arrow-down input-icon" :class="{ 'input-focus': popoverShow }" />
     </div>
   </el-popover>
 </template>
@@ -125,11 +117,7 @@ export default {
     },
     // 数据回写
     treeWriteBack() {
-      if (
-        this.isStartOpen &&
-        this.$_.isArray(this.modelValue) &&
-        this.modelValue.length > 0
-      ) {
+      if (this.isStartOpen && this.$_.isArray(this.modelValue) && this.modelValue.length > 0) {
         this.expandCheckNodes(this.modelValue)
         this.isStartOpen = false
       } else {

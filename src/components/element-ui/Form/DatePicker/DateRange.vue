@@ -1,16 +1,8 @@
 <template>
   <div>
-    <date-picker
-      v-model="modelValue[0]"
-      v-bind="$attrs"
-      @value:change="valueChange"
-    />
+    <date-picker v-model="modelValue[0]" v-bind="$attrs" @value:change="valueChange" />
     <span class="range">~</span>
-    <date-picker
-      v-model="modelValue[1]"
-      v-bind="$attrs"
-      @value:change="valueChange"
-    />
+    <date-picker v-model="modelValue[1]" v-bind="$attrs" @value:change="valueChange" />
   </div>
 </template>
 

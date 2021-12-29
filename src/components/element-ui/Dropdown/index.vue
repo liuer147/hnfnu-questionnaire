@@ -1,10 +1,5 @@
 <template>
-  <el-dropdown
-    :trigger="trigger"
-    :placement="placement"
-    v-bind="$attrs"
-    @command="handleCommand"
-  >
+  <el-dropdown :trigger="trigger" :placement="placement" v-bind="$attrs" @command="handleCommand">
     <al-button :icon="icon" type="primary" @click="handleClick">
       {{ labelText }}<i class="el-icon-arrow-down el-icon--right" />
     </al-button>
@@ -21,10 +16,7 @@
   </el-dropdown>
 </template>
 <script>
-import {
-  Dropdown as ElDropdown,
-  DropdownItem as ElDropdownItem,
-} from 'element-ui'
+import { Dropdown as ElDropdown, DropdownItem as ElDropdownItem } from 'element-ui'
 import AlButton from '@/components/element-ui/Button'
 export default {
   name: 'Dropdown',

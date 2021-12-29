@@ -1,12 +1,8 @@
 <template>
   <el-checkbox-group class="options" v-bind="$attrs" v-model="value" @change="handleChange">
-    <el-checkbox
-      class="option-value"
-      v-for="item of options"
-      :key="item.mark"
-      :label="item.mark"
-      >{{ item.text }}</el-checkbox
-    >
+    <el-checkbox class="option-value" v-for="item of options" :key="item.mark" :label="item.mark">{{
+      item.text
+    }}</el-checkbox>
   </el-checkbox-group>
 </template>
 

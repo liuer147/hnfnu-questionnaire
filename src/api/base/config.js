@@ -26,10 +26,7 @@ axios.interceptors.response.use(
     // console.log(error.response)
     // timeout of 10ms exceeded
     // ECONNABORTED econnaborted
-    if (
-      error.code === 'ECONNABORTED' &&
-      error.message === `timeout of ${error.config.timeout}ms exceeded`
-    ) {
+    if (error.code === 'ECONNABORTED' && error.message === `timeout of ${error.config.timeout}ms exceeded`) {
       Message.error('网络超时~')
       return error
     }

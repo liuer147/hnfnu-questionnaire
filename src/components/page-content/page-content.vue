@@ -3,15 +3,9 @@
     <div class="table">
       <div class="header">
         <div v-if="hasCreatePermission">
-          <el-button size="medium" type="primary" plain @click="create(0)"
-            >新增单选</el-button
-          >
-          <el-button size="medium" type="primary" plain @click="create(1)"
-            >新增多选</el-button
-          >
-          <el-button size="medium" type="primary" plain @click="create(2)"
-            >新增判断</el-button
-          >
+          <el-button size="medium" type="primary" plain @click="create(0)">新增单选</el-button>
+          <el-button size="medium" type="primary" plain @click="create(1)">新增多选</el-button>
+          <el-button size="medium" type="primary" plain @click="create(2)">新增判断</el-button>
         </div>
       </div>
       <MyTable

@@ -5,11 +5,7 @@
 ```vue
 <template>
   <div class="demo-main">
-    <search-form
-      :search-form="searchForm"
-      :search-list="searchList"
-      @searchClick="searchClick"
-    />
+    <search-form :search-form="searchForm" :search-list="searchList" @searchClick="searchClick" />
   </div>
 </template>
 

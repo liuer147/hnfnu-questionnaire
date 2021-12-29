@@ -63,9 +63,7 @@ export default {
       switch (prop) {
         case 'details':
           this.isDetails = !this.isDetails
-          this.handleButton[1]['icon'] = this.isDetails
-            ? 'el-icon-caret-top'
-            : 'el-icon-caret-bottom'
+          this.handleButton[1]['icon'] = this.isDetails ? 'el-icon-caret-top' : 'el-icon-caret-bottom'
           break
         case 'confirm':
           this.vModelValue = false

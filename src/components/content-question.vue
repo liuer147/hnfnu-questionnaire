@@ -2,11 +2,7 @@
   <div class="radio-question">
     <h2 class="title">{{ title }}</h2>
     <div class="options">
-      <span
-        class="options-item"
-        v-for="(item, index) of options"
-        :key="item.text"
-      >
+      <span class="options-item" v-for="(item, index) of options" :key="item.text">
         <i
           :class="{
             'is-true': isTrue(index),
@@ -14,9 +10,7 @@
             'multiple-icon': isMultiple,
           }"
         />
-        <label class="item-title" :class="{ 'is-true': isTrue(index) }">{{
-          item.text
-        }}</label>
+        <label class="item-title" :class="{ 'is-true': isTrue(index) }">{{ item.text }}</label>
       </span>
     </div>
   </div>

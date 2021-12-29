@@ -1,10 +1,5 @@
 <template>
-  <al-select
-    v-model="tableRow[prop]"
-    v-bind="selectConfig"
-    @formChange="formChange"
-    @blur="blur"
-  />
+  <al-select v-model="tableRow[prop]" v-bind="selectConfig" @formChange="formChange" @blur="blur" />
 </template>
 
 <script>

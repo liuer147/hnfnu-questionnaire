@@ -53,11 +53,7 @@
 ```vue
 <template>
   <div class="table-demo">
-    <al-table
-      :table-list="tableList"
-      :table-data="tableData"
-      :table-config="tableConfig"
-    />
+    <al-table :table-list="tableList" :table-data="tableData" :table-config="tableConfig" />
   </div>
 </template>
 
@@ -173,11 +169,7 @@ export default {
 ```vue
 <template>
   <div class="table-demo">
-    <al-table
-      :table-list="tableList"
-      :table-data="tableData"
-      :table-config="tableConfig"
-    />
+    <al-table :table-list="tableList" :table-data="tableData" :table-config="tableConfig" />
   </div>
 </template>
 
@@ -246,16 +238,8 @@ export default {
     <al-button v-if="tableTypeValue === '0'" type="text">重命名</al-button>
     <al-button v-if="tableIndex !== 0" type="text">置顶</al-button>
     <al-button v-if="tableTypeValue !== '0'" type="text">立即执行</al-button>
-    <al-button
-      v-if="tableTypeValue === '1' && tableStatusValue === '0'"
-      type="text"
-      >启用</al-button
-    >
-    <al-button
-      v-if="tableTypeValue === '1' && tableStatusValue === '1'"
-      type="text"
-      >禁用</al-button
-    >
+    <al-button v-if="tableTypeValue === '1' && tableStatusValue === '0'" type="text">启用</al-button>
+    <al-button v-if="tableTypeValue === '1' && tableStatusValue === '1'" type="text">禁用</al-button>
     <al-button v-if="tableTypeValue !== '0'" type="text">编辑</al-button>
     <al-button type="text">删除</al-button>
   </div>
@@ -303,11 +287,7 @@ export default {
   computed: {
     iconClass() {
       const type = this.tableRow.type
-      const iconList = [
-        'el-icon-folder-opened',
-        'el-icon-document',
-        'el-icon-paperclip',
-      ]
+      const iconList = ['el-icon-folder-opened', 'el-icon-document', 'el-icon-paperclip']
       return iconList[type]
     },
   },

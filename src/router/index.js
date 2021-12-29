@@ -6,22 +6,14 @@ import usePermission from './permission'
 import loadRoutes from '../utils/load-routes'
 Vue.use(VueRouter)
 
-const Login = () =>
-  import(/* webpackChunkName: "login" */ '../views/login/login.vue')
-const Home = () =>
-  import(/* webpackChunkName: "home" */ '../components/home.vue')
-const Welcome = () =>
-  import(/* webpackChunkName: "welcome" */ '../views/welcome/welcome.vue')
-const NotFound = () =>
-  import(/* webpackChunkName: "not-found" */ '../views/not-found.vue')
+const Login = () => import(/* webpackChunkName: "login" */ '../views/login/login.vue')
+const Home = () => import(/* webpackChunkName: "home" */ '../components/home.vue')
+const Welcome = () => import(/* webpackChunkName: "welcome" */ '../views/welcome/welcome.vue')
+const NotFound = () => import(/* webpackChunkName: "not-found" */ '../views/not-found.vue')
 // const QuestionList = () =>
 //   import(/* webpackChunkName: "question-list" */ '../views/questionList')
-const QuestionnaireList = () =>
-  import(
-    /* webpackChunkName: "questionnaire-list" */ '../views/questionnaireList'
-  )
-const Questionnaire = () =>
-  import(/* webpackChunkName: "questionnaire" */ '../views/questionnaire')
+// const QuestionnaireList = () => import(/* webpackChunkName: "questionnaire-list" */ '../views/questionnaireList')
+const Questionnaire = () => import(/* webpackChunkName: "questionnaire" */ '../views/questionnaire')
 const constantRoutes = [
   {
     path: '/',
@@ -66,11 +58,7 @@ const router = createRouter()
 
 usePermission(router, store) // 权限控制
 
-if (
-  store.getters['users/token'] &&
-  router.history &&
-  router.history.current.fullPath !== '/login'
-) {
+if (store.getters['users/token'] && router.history && router.history.current.fullPath !== '/login') {
   loadRoutes(router, store.getters['users/roleId']) // 加载路由
 }
 

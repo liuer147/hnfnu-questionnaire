@@ -26,9 +26,7 @@
           >
             <i class="el-icon-question" />
           </el-tooltip>
-          <span>{{
-            item.label && config.isColon ? item.label + '：' : item.label
-          }}</span>
+          <span>{{ item.label && config.isColon ? item.label + '：' : item.label }}</span>
         </span>
         <component
           :is="item.component | filterComponent"

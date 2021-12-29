@@ -14,18 +14,11 @@
             <el-form-item :label="item.label" :prop="item.field">
               <template v-if="item.type === 'number'">
                 <!-- number类型的输入框 -->
-                <el-input
-                  v-model.number="modelData[item.field]"
-                  :placeholder="item.placeholder"
-                />
+                <el-input v-model.number="modelData[item.field]" :placeholder="item.placeholder" />
               </template>
               <template v-else>
                 <!-- 默认类型的输入框 -->
-                <el-input
-                  :type="item.type"
-                  v-model="modelData[item.field]"
-                  :placeholder="item.placeholder"
-                />
+                <el-input :type="item.type" v-model="modelData[item.field]" :placeholder="item.placeholder" />
               </template>
             </el-form-item>
           </el-col>

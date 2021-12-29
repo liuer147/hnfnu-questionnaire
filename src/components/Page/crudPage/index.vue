@@ -1,11 +1,7 @@
 <!--增删改查-->
 <template>
   <div class="table-page">
-    <al-table-page
-      v-bind="tableConfig"
-      :table-data="tableData"
-      @buttonClick="buttonClick"
-    />
+    <al-table-page v-bind="tableConfig" :table-data="tableData" @buttonClick="buttonClick" />
   </div>
 </template>
 

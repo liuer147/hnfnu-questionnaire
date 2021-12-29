@@ -1,16 +1,9 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item
-        v-for="(item, index) in levelList"
-        :key="item.path || item.id"
-      >
+      <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path || item.id">
         <span
-          v-if="
-            item.redirect === 'noRedirect' ||
-            (!item.redirect && item.path) ||
-            index == levelList.length - 1
-          "
+          v-if="item.redirect === 'noRedirect' || (!item.redirect && item.path) || index == levelList.length - 1"
           class="no-redirect"
           >{{ item.meta.title }}</span
         >
@@ -22,10 +15,7 @@
 
 <script>
 import pathToRegexp from 'path-to-regexp'
-import {
-  breadcrumbBus,
-  PAGE_LEVEL_SET,
-} from '@/components/Breadcrumb/breadcrumbBus'
+import { breadcrumbBus, PAGE_LEVEL_SET } from '@/components/Breadcrumb/breadcrumbBus'
 
 export default {
   data() {
@@ -66,13 +56,9 @@ export default {
     },
     // 面包屑获取
     getBreadcrumb() {
-      const matched = this.$route.matched.filter(
-        (item) => item.meta && item.meta.title
-      )
+      const matched = this.$route.matched.filter((item) => item.meta && item.meta.title)
       // 路由菜单可设置面包屑不显示
-      const levelList = matched.filter(
-        (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
-      )
+      const levelList = matched.filter((item) => item.meta && item.meta.title && item.meta.breadcrumb !== false)
       this.levelList = [...levelList, ...this.pageLevelList]
     },
     pathCompile(path) {

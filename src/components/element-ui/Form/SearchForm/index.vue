@@ -8,10 +8,7 @@
     v-on="$listeners"
   >
     <template slot="append">
-      <el-form-item
-        class="search-info"
-        :prop="searchInfo ? searchInfo.prop : 'searchButton'"
-      >
+      <el-form-item class="search-info" :prop="searchInfo ? searchInfo.prop : 'searchButton'">
         <al-input
           v-if="searchInfo && isSearchButton"
           v-model="searchForm[searchInfo.prop]"
@@ -20,15 +17,8 @@
           v-bind="searchInfo.bindConfig"
           @formItemEvent="formItemEvent"
         >
-          <al-popover
-            v-if="attachSearch.length"
-            slot="prepend"
-            :width="popoverNowWidth"
-          >
-            <div
-              class="search-main"
-              :style="{ width: `${popoverNowWidth - 20}px` }"
-            >
+          <al-popover v-if="attachSearch.length" slot="prepend" :width="popoverNowWidth">
+            <div class="search-main" :style="{ width: `${popoverNowWidth - 20}px` }">
               <al-form
                 ref="attachSearch"
                 :form-data="searchForm"
@@ -36,28 +26,17 @@
                 :form-config="attachConfig"
               />
               <div class="attach-search-button">
-                <al-button icon="el-icon-search" @click="searchClick"
-                  >搜索</al-button
-                >
-                <al-button icon="el-icon-refresh" @click="resetForm"
-                  >重置</al-button
-                >
+                <al-button icon="el-icon-search" @click="searchClick">搜索</al-button>
+                <al-button icon="el-icon-refresh" @click="resetForm">重置</al-button>
               </div>
             </div>
-            <al-button
-              v-if="isSearchButton"
-              slot="reference"
-              class="reference-button"
+            <al-button v-if="isSearchButton" slot="reference" class="reference-button"
               >综合搜索 <i class="el-icon-arrow-down"
             /></al-button>
           </al-popover>
           <!--          <al-button slot="append" class="search-info-button append-button" icon="el-icon-search" @click="searchClick" />-->
         </al-input>
-        <al-button
-          v-if="!searchInfo && isSearchButton"
-          class="search-button"
-          icon="el-icon-search"
-          @click="searchClick"
+        <al-button v-if="!searchInfo && isSearchButton" class="search-button" icon="el-icon-search" @click="searchClick"
           >搜索</al-button
         >
       </el-form-item>
@@ -168,10 +147,7 @@ export default {
         this.mainSearch = searchList.slice(0, mainMax - 1)
         this.searchInfo = searchList[mainMax - 1]
         if (this.searchInfo.component !== 'input') {
-          console.error(
-            '搜索表单综合搜索处应设置为输入搜索 --- prop:' +
-              this.searchInfo.prop
-          )
+          console.error('搜索表单综合搜索处应设置为输入搜索 --- prop:' + this.searchInfo.prop)
         }
         this.attachSearch = searchList.slice(mainMax)
         const attachLength = this.attachSearch.length
@@ -186,11 +162,7 @@ export default {
         }
       } else {
         const searchInfo = searchList[length - 1]
-        if (
-          searchInfo &&
-          searchInfo.component === 'input' &&
-          !this.closeInfoSearch
-        ) {
+        if (searchInfo && searchInfo.component === 'input' && !this.closeInfoSearch) {
           this.searchInfo = searchInfo
           this.mainSearch = searchList.slice(0, length - 1)
         } else {

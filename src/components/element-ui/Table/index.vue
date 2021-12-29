@@ -13,19 +13,12 @@
     @select-all="selectAllItem"
   >
     <template v-if="config.isEmpty" slot="empty">
-      <span :class="[config.class ? config.class : tableText]">{{
-        config.emptyContent
-      }}</span>
+      <span :class="[config.class ? config.class : tableText]">{{ config.emptyContent }}</span>
     </template>
     <slot name="tableHeader" />
     <el-table-column v-if="expandColumn" type="expand">
       <template slot-scope="props">
-        <component
-          :is="expandColumn.component"
-          :scope="props"
-          :prop="expandColumn.prop"
-          :bind-config="expandColumn"
-        />
+        <component :is="expandColumn.component" :scope="props" :prop="expandColumn.prop" :bind-config="expandColumn" />
       </template>
     </el-table-column>
     <!--  选择/序号  -->
@@ -63,12 +56,7 @@
       </template>
     </el-table-column>
     <!--  操作列  -->
-    <el-table-column
-      v-if="buttonColumn"
-      label="操作"
-      align="center"
-      v-bind="buttonColumn.itemConfig"
-    >
+    <el-table-column v-if="buttonColumn" label="操作" align="center" v-bind="buttonColumn.itemConfig">
       <template v-if="buttonColumn.isHeader" slot="header">
         <component
           :is="buttonColumn.componentHeader | componentFilter"

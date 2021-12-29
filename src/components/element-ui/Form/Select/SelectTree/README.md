@@ -9,25 +9,15 @@
   <div class="page-table-wrapper">
     <div class="page-table-container">
       <h2 style="margin: 20px 0">懒加载数据</h2>
-      <select-tree
-        v-model="value1"
-        :load-node="loadNode"
-        :default-props="props1"
-      />
+      <select-tree v-model="value1" :load-node="loadNode" :default-props="props1" />
       {{ value1 }}
       <h2 style="margin: 20px 0">树形结构数据</h2>
       <select-tree v-model="value2" :lazy="false" :data="data" />
       {{ value2 }}
       <h2 style="margin: 20px 0">懒加载默认选中， 主动选中</h2>
-      <select-tree
-        v-model="value3"
-        :load-node="loadNode"
-        :default-props="props1"
-      />
+      <select-tree v-model="value3" :load-node="loadNode" :default-props="props1" />
       {{ value3 }}
-      <el-button type="primary" size="mini" @click="value3 = [1, 3, 5]"
-        >切换选中</el-button
-      >
+      <el-button type="primary" size="mini" @click="value3 = [1, 3, 5]">切换选中</el-button>
     </div>
   </div>
 </template>

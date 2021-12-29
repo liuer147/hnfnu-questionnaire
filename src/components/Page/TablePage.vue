@@ -2,12 +2,7 @@
   <div class="table-page">
     <slot name="table-header">
       <div class="table-header" :class="{ 'only-search-form': isOnlySearch }">
-        <button-list
-          v-if="!isOnlySearch"
-          class="table-header-left"
-          :button-list="handleButton"
-          v-on="$listeners"
-        />
+        <button-list v-if="!isOnlySearch" class="table-header-left" :button-list="handleButton" v-on="$listeners" />
         <search-form
           v-if="isSearch"
           ref="searchForm"
@@ -189,12 +184,8 @@ export default {
       return !this.handleButton || this.handleButton.length === 0
     },
     isSearch() {
-      const searchPermission =
-        this.searchFormConfig && this.searchFormConfig.searchPermission
-      return (
-        this.searchList.length > 0 &&
-        (!searchPermission || this.$checkPermission(searchPermission))
-      )
+      const searchPermission = this.searchFormConfig && this.searchFormConfig.searchPermission
+      return this.searchList.length > 0 && (!searchPermission || this.$checkPermission(searchPermission))
     },
   },
   methods: {

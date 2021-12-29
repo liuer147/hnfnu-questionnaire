@@ -33,13 +33,8 @@ export default {
       return this.bindConfig.options || []
     },
     values() {
-      if (
-        this.tableColumnValue !== null &&
-        typeof this.tableColumnValue !== 'undefined'
-      ) {
-        return Array.isArray(this.tableColumnValue)
-          ? this.tableColumnValue
-          : [String(this.tableColumnValue)]
+      if (this.tableColumnValue !== null && typeof this.tableColumnValue !== 'undefined') {
+        return Array.isArray(this.tableColumnValue) ? this.tableColumnValue : [String(this.tableColumnValue)]
       } else {
         return []
       }

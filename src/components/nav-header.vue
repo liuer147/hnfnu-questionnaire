@@ -24,9 +24,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>{{ user.mailbox }}</el-dropdown-item>
             <el-dropdown-item>修改信息</el-dropdown-item>
-            <el-dropdown-item divided @click.native="handleLogout">
-              退出登录
-            </el-dropdown-item>
+            <el-dropdown-item divided @click.native="handleLogout"> 退出登录 </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>

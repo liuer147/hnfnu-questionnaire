@@ -1,12 +1,6 @@
 <template>
   <div class="page-search">
-    <MyForm
-      :form-items="searchItems"
-      :form-data.sync="searchData"
-      :rules="rules"
-      :layout="layout"
-      ref="MyForm"
-    >
+    <MyForm :form-items="searchItems" :form-data.sync="searchData" :rules="rules" :layout="layout" ref="MyForm">
       <template #footer>
         <div class="operator">
           <el-button type="primary" size="medium"> 搜索 </el-button>

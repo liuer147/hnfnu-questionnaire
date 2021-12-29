@@ -1,16 +1,8 @@
 <template>
   <span ref="child">
-    <input
-      ref="inputFile"
-      class="input-file"
-      type="file"
-      :accept="accept"
-      @change="exportData"
-    />
+    <input ref="inputFile" class="input-file" type="file" :accept="accept" @change="exportData" />
     <al-input v-model="ExcelName" :size="size" placeholder="" :disabled="true">
-      <el-button slot="append" type="primary" :size="size" @click="btnClick"
-        >浏览</el-button
-      >
+      <el-button slot="append" type="primary" :size="size" @click="btnClick">浏览</el-button>
     </al-input>
     <el-button
       v-if="isUpdate"
@@ -36,8 +28,7 @@ export default {
   props: {
     accept: {
       type: String,
-      default:
-        '.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel',
+      default: '.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel',
     },
     isUpdate: {
       type: String,

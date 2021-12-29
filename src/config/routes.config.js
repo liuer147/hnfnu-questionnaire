@@ -10,10 +10,8 @@ const Questionnaire = () =>
   import(
     /* webpackChunkName: 'questionnaire' *!/ '@/views/questionnaire'
   )*/
-const QuestionList = () =>
-  import(/* webpackChunkName: 'questionList' */ '@/views/questionList')
-const QuestionnaireList = () =>
-  import(/* webpackChunkName: 'questionnaireList' */ '@/views/questionnaireList')
+const QuestionList = () => import(/* webpackChunkName: 'questionList' */ '@/views/questionList')
+const QuestionnaireList = () => import(/* webpackChunkName: 'questionnaireList' */ '@/views/questionnaireList')
 
 const adminRoutes = [
   {
@@ -21,15 +19,15 @@ const adminRoutes = [
     name: 'QuestionnaireList',
     meta: { title: '问卷记录' },
     component: QuestionnaireList,
-    type: 2
+    type: 2,
   },
   {
     path: '/questionList',
     name: 'QuestionList',
     meta: { title: '试题记录' },
     component: QuestionList,
-    type: 2
-  }
+    type: 2,
+  },
 ]
 const teacherRoutes = [
   {
@@ -37,15 +35,15 @@ const teacherRoutes = [
     name: 'QuestionnaireList',
     meta: { title: '问卷记录' },
     component: QuestionnaireList,
-    type: 2
+    type: 2,
   },
   {
     path: '/questionList',
     name: 'QuestionList',
     meta: { title: '试题记录' },
     component: QuestionList,
-    type: 2
-  }
+    type: 2,
+  },
 ]
 
 const roleRoutesObj = {

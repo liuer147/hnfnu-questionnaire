@@ -1,8 +1,6 @@
 <template>
   <div>
-    <span v-if="hasNum" class="label" :style="{ color }" @click="labelClick"
-      >{{ vModelValue }}个</span
-    >
+    <span v-if="hasNum" class="label" :style="{ color }" @click="labelClick">{{ vModelValue }}个</span>
     <span v-else>{{ vModelValue }}个</span>
   </div>
 </template>

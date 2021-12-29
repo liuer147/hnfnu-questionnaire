@@ -1,8 +1,4 @@
-import {
-  getPublicQuestionsList,
-  getSelfQuestionsByUserId,
-  createNewQuestion,
-} from '../../api/questions'
+import { getPublicQuestionsList, getSelfQuestionsByUserId, createNewQuestion } from '../../api/questions'
 
 export default {
   namespaced: true,

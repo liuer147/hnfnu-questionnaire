@@ -3,9 +3,7 @@
     v-model="vModelValue"
     :type="type"
     :placeholder="placeholder"
-    :value-format="
-      valueFormat || type === 'datetime' ? 'yyyy-MM-dd HH:mm:ss' : 'yyyy-MM-dd'
-    "
+    :value-format="valueFormat || type === 'datetime' ? 'yyyy-MM-dd HH:mm:ss' : 'yyyy-MM-dd'"
     :picker-options="pickerOptions"
     v-bind="$attrs"
   />

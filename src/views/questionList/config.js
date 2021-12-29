@@ -1,10 +1,6 @@
 import { textButtonList } from '@/config/button'
 
-const tableButtonList = [
-  { prop: 'preView', label: '预览' },
-  textButtonList.edit,
-  textButtonList.delete,
-]
+const tableButtonList = [{ prop: 'preView', label: '预览' }, textButtonList.edit, textButtonList.delete]
 
 function typeFormatter(row) {
   const mapObj = {

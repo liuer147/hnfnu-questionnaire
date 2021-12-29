@@ -7,10 +7,7 @@
       <div class="score-wrapper">
         <div class="score-item">
           <p class="score">{{ score }}</p>
-          <img
-            src="@/assets/images/score-underline.png"
-            class="score-underline"
-          />
+          <img src="@/assets/images/score-underline.png" class="score-underline" />
           <div class="bottom-text">总分100分</div>
         </div>
         <div class="score-item right">
@@ -54,9 +51,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      const isAll = this.questions.every((item, index) =>
-        validateSelected(this.answer[index], item.type)
-      )
+      const isAll = this.questions.every((item, index) => validateSelected(this.answer[index], item.type))
       if (!isAll) this.$message.warning('存在题目未选择')
       else this.$message.success('恭喜完成答题')
     },

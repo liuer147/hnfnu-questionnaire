@@ -1,10 +1,6 @@
 import { textButtonList } from '@/config/button'
 
-const tableButtonList = [
-  textButtonList.edit,
-  textButtonList.delete,
-  { prop: 'start', label: '开始答题' },
-]
+const tableButtonList = [textButtonList.edit, textButtonList.delete, { prop: 'start', label: '开始答题' }]
 
 export const questionnaireListTablePageConfig = {
   tableList: [

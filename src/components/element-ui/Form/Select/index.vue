@@ -8,14 +8,8 @@
     @blur="$emit('blur', $event)"
   >
     <el-option v-for="item in selectList" :key="item.value" v-bind="item">
-      <span
-        class="select-label text-ellipsis"
-        :class="{ 'select-label-left': isShowRight }"
-        >{{ item.label }}</span
-      >
-      <span v-if="isShowRight" class="select-value text-ellipsis">{{
-        item[rightLabelKey]
-      }}</span>
+      <span class="select-label text-ellipsis" :class="{ 'select-label-left': isShowRight }">{{ item.label }}</span>
+      <span v-if="isShowRight" class="select-value text-ellipsis">{{ item[rightLabelKey] }}</span>
     </el-option>
   </el-select>
 </template>

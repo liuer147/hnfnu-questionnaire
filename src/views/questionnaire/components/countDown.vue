@@ -52,9 +52,7 @@ export default {
         end -= Date.now()
         return end
       }
-      const time = this.isMiniSecond
-        ? Math.round(+this.time / 1000)
-        : Math.round(+this.time)
+      const time = this.isMiniSecond ? Math.round(+this.time / 1000) : Math.round(+this.time)
       return time
     },
   },

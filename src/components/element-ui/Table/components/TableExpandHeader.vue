@@ -2,9 +2,7 @@
 <template>
   <div class="demo-table-expand">
     <p v-for="(item, index) in expandList" :key="index" class="item-table">
-      <span class="title-label" :class="{ illegal: item.illegal }">{{
-        item.label
-      }}</span>
+      <span class="title-label" :class="{ illegal: item.illegal }">{{ item.label }}</span>
       <span class="content-value">{{ tableRow[item.prop] }}</span>
     </p>
   </div>

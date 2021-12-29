@@ -1,16 +1,6 @@
 <template>
-  <el-tabs
-    v-model="vModelValue"
-    v-bind="tabsConfig"
-    class="al-tabs"
-    @tab-click="handleClick"
-  >
-    <el-tab-pane
-      v-for="tab in tabList"
-      :key="tab.name"
-      :name="tab.name"
-      :label="tab.label"
-    />
+  <el-tabs v-model="vModelValue" v-bind="tabsConfig" class="al-tabs" @tab-click="handleClick">
+    <el-tab-pane v-for="tab in tabList" :key="tab.name" :name="tab.name" :label="tab.label" />
   </el-tabs>
 </template>
 

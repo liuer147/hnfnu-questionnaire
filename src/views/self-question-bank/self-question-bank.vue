@@ -1,12 +1,7 @@
 <template>
   <div>
     <PageSearch :search-items="formItems" :rules="rules" page="self" />
-    <PageContent
-      :table-columns="tableColumns"
-      page="self"
-      @create="handleCreate"
-      @edit="handleEdit"
-    />
+    <PageContent :table-columns="tableColumns" page="self" @create="handleCreate" @edit="handleEdit" />
     <!--    <QuestionDialog-->
     <!--      ref="dialog"-->
     <!--      :type="QuestionType"-->

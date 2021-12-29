@@ -1,12 +1,8 @@
 <template>
   <el-radio-group class="options" v-bind="$attrs" v-model="value" @change="handleChange">
-    <el-radio
-      class="option-value"
-      v-for="item of options"
-      :key="item.mark"
-      :label="item.mark"
-      >{{ item.text }}</el-radio
-    >
+    <el-radio class="option-value" v-for="item of options" :key="item.mark" :label="item.mark">{{
+      item.text
+    }}</el-radio>
   </el-radio-group>
 </template>
 

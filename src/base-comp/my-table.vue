@@ -6,25 +6,14 @@
       </template>
     </el-table-column>
     <el-table-column type="index" align="center" width="60" label="序号" />
-    <el-table-column
-      v-for="item of tableColumns"
-      align="center"
-      :key="item.prop"
-      :label="item.label"
-      :prop="item.prop"
-    >
+    <el-table-column v-for="item of tableColumns" align="center" :key="item.prop" :label="item.label" :prop="item.prop">
       <template v-slot="{ row }">
         <slot :name="item.prop" :row="row">
           {{ row[item.prop] }}
         </slot>
       </template>
     </el-table-column>
-    <el-table-column
-      label="操作"
-      align="center"
-      width="130"
-      v-if="hasOperatorPermission"
-    >
+    <el-table-column label="操作" align="center" width="130" v-if="hasOperatorPermission">
       <template v-slot="scope">
         <slot name="operator" :row="scope.row"></slot>
       </template>

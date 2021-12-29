@@ -35,10 +35,7 @@ export default {
         currentPage: this.pageData.pageNum,
         pageSize: this.pageData.pageSize,
       }
-      const { total, records } = await getSelfQuestionsByUserId(
-        this.$store.getters['users/userId'],
-        params
-      )
+      const { total, records } = await getSelfQuestionsByUserId(this.$store.getters['users/userId'], params)
       this.tableData =
         records &&
         records.map((item) => ({

@@ -43,12 +43,7 @@ export default {
         },
         { prop: 'address', label: '地址', component: 'input' },
       ],
-      handleButton: [
-        buttonData.export,
-        buttonData.Import,
-        buttonData.refresh,
-        buttonData.delete,
-      ],
+      handleButton: [buttonData.export, buttonData.Import, buttonData.refresh, buttonData.delete],
       tableList: [
         { prop: 'date', label: '日期' },
         { prop: 'name', label: '名称' },

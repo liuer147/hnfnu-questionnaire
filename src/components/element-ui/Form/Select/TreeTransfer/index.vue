@@ -9,9 +9,7 @@
           <el-button size="mini" @click="buttonClick('top')">置顶</el-button>
           <el-button size="mini" @click="buttonClick('bottom')">置底</el-button>
           <el-button size="mini" @click="buttonClick('moveUp')">上移</el-button>
-          <el-button size="mini" @click="buttonClick('moveDown')"
-            >下移</el-button
-          >
+          <el-button size="mini" @click="buttonClick('moveDown')">下移</el-button>
         </slot>
       </div>
     </div>

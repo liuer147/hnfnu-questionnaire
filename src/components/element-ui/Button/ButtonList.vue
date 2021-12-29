@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="button-list"
-    :style="{ display: inline ? 'inline-block' : 'block' }"
-  >
+  <div class="button-list" :style="{ display: inline ? 'inline-block' : 'block' }">
     <template v-for="item in buttonList">
       <al-dropdown
         v-if="item.type === 'dropdown'"

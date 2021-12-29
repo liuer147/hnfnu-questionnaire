@@ -19,25 +19,12 @@
           @change="handleCheckAllChange"
           >全选</el-checkbox
         >
-        <el-input
-          v-model="filterText"
-          placeholder="输入关键字进行过滤"
-          @change="selectFilter"
-        />
+        <el-input v-model="filterText" placeholder="输入关键字进行过滤" @change="selectFilter" />
       </div>
       <div class="checkbox-main">
         <p v-if="!getOptions.length" class="check-item-null">暂无数据</p>
-        <el-checkbox-group
-          v-else
-          v-model="checkedItems"
-          v-bind="$attrs"
-          @change="handleCheckedItemsChange"
-        >
-          <el-checkbox
-            v-for="(item, i) in getOptions"
-            :key="i"
-            :label="item.value"
-          >
+        <el-checkbox-group v-else v-model="checkedItems" v-bind="$attrs" @change="handleCheckedItemsChange">
+          <el-checkbox v-for="(item, i) in getOptions" :key="i" :label="item.value">
             <span v-if="isShowValue" class="code-text">{{ item.value }}</span>
             <span class="name-text">{{ item.caption }}</span>
           </el-checkbox>
@@ -45,17 +32,8 @@
       </div>
     </div>
     <div slot="reference" class="click-input">
-      <el-input
-        v-model="inputShowText"
-        class="checkbox-input"
-        placeholder="请选择"
-        :disabled="disabled"
-      >
-        <i
-          slot="suffix"
-          class="el-icon-arrow-down input-icon"
-          :class="{ 'input-focus': popoverShow }"
-        />
+      <el-input v-model="inputShowText" class="checkbox-input" placeholder="请选择" :disabled="disabled">
+        <i slot="suffix" class="el-icon-arrow-down input-icon" :class="{ 'input-focus': popoverShow }" />
       </el-input>
     </div>
   </el-popover>
@@ -140,7 +118,7 @@ export default {
     },
   },
   watch: {
-    options(newVal, oldVal) {
+    options() {
       // 数据改变,清空已选择的数组
       this.checkedItems = []
       this.checkedData = []
@@ -191,9 +169,7 @@ export default {
         this.vModelValue = valueArr.join(',')
       }
       this.isIndeterminate = false
-      const eventName = !this.checkName
-        ? 'checkboxChange'
-        : `checkboxChange-${this.checkName}`
+      const eventName = !this.checkName ? 'checkboxChange' : `checkboxChange-${this.checkName}`
       this.checkedData = !val ? [] : this.getOptions
       this.$emit('formItemEvent', {
         event: eventName,
@@ -204,8 +180,7 @@ export default {
     handleCheckedItemsChange(value) {
       const checkedCount = value.length
       this.checkAll = checkedCount === this.getOptions.length
-      this.isIndeterminate =
-        checkedCount > 0 && checkedCount < this.getOptions.length
+      this.isIndeterminate = checkedCount > 0 && checkedCount < this.getOptions.length
       this.vModelValue = this.checkedItems.join(',')
       if (this.inputShowValue) {
         // input框显示value
@@ -222,9 +197,7 @@ export default {
         })
         this.inputShowText = inputArr.join(',')
       }
-      const eventName = !this.checkName
-        ? 'checkboxChange'
-        : `checkboxChange-${this.checkName}`
+      const eventName = !this.checkName ? 'checkboxChange' : `checkboxChange-${this.checkName}`
       this.$emit('formItemEvent', {
         event: eventName,
         prop: { chooseList: value, chooseData: this.checkedData },

@@ -13,11 +13,7 @@
       <slot name="prepend" />
     </template>
     <template slot="append">
-      <div
-        v-if="appendLabel || appendIcon"
-        class="input-append"
-        @click="formItemEvent('inputAppendClick', prop)"
-      >
+      <div v-if="appendLabel || appendIcon" class="input-append" @click="formItemEvent('inputAppendClick', prop)">
         <span v-if="appendLabel">{{ appendLabel }}</span>
         <i v-if="appendIcon" :class="appendIcon" />
       </div>

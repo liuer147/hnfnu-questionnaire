@@ -1,9 +1,5 @@
 <template>
-  <el-time-picker
-    v-model="vModelValue"
-    :placeholder="placeholder"
-    v-bind="$attrs"
-  />
+  <el-time-picker v-model="vModelValue" :placeholder="placeholder" v-bind="$attrs" />
 </template>
 
 <script>

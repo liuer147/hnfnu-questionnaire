@@ -1,10 +1,6 @@
 <template>
   <al-input v-model="tableRow[prop]" :bind-config="bindConfig">
-    <el-button
-      slot="append"
-      icon="el-icon-more expanded"
-      @click="buttonClick"
-    />
+    <el-button slot="append" icon="el-icon-more expanded" @click="buttonClick" />
   </al-input>
 </template>
 

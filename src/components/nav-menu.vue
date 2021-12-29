@@ -19,19 +19,11 @@
             <i :class="menu.icon" />
             <span>{{ menu.name }}</span>
           </template>
-          <el-menu-item
-            v-for="item of menu.children"
-            :key="item._id"
-            :index="item.path"
-          >
+          <el-menu-item v-for="item of menu.children" :key="item._id" :index="item.path">
             {{ item.name }}
           </el-menu-item>
         </el-submenu>
-        <el-menu-item
-          :key="menu._id"
-          v-else-if="menu.type === 2"
-          :index="menu.path"
-        >
+        <el-menu-item :key="menu._id" v-else-if="menu.type === 2" :index="menu.path">
           <i :class="menu.icon" />
           <span>{{ menu.name }}</span>
         </el-menu-item>
